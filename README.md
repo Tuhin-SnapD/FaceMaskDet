@@ -34,14 +34,6 @@
 
 ---
 
-## 🎬 **Live Demo**
-
-![Demo GIF](https://via.placeholder.com/800x400/4CAF50/FFFFFF?text=Real-time+Mask+Detection+Demo)
-
-*Experience the power of AI-driven mask detection in action!*
-
----
-
 ## 🏗️ **Architecture Overview**
 
 ```mermaid
