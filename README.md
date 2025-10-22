@@ -374,17 +374,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🌟 **Star History**
-
-[![Star History Chart](https://api.star-history.com/svg?repos=sidx255/FaceMaskDetection&type=Date)](https://star-history.com/#sidx255/FaceMaskDetection&Date)
-
----
-
-<div align="center">
-
-### **🛡️ Protect Your Community with AI-Powered Mask Detection**
-
-**Made with ❤️ by [sidx255](https://github.com/sidx255) and [Chaitanya](https://github.com/chaitanya)**
 
 [![GitHub stars](https://img.shields.io/github/stars/sidx255/FaceMaskDetection?style=social)](https://github.com/sidx255/FaceMaskDetection/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/sidx255/FaceMaskDetection?style=social)](https://github.com/sidx255/FaceMaskDetection/network/members)
