@@ -15,6 +15,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import argparse
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import config
 
 # Instantiate an argument parser and parse the arguments
 parser = argparse.ArgumentParser()
@@ -49,10 +52,13 @@ LEARNING_RATE = 1e-4
 EPOCHS = 20
 BATCH_SIZE = 32
 IMG_SIZE = 224
-dataset_path = "./data/" + args.dataset + "/"
-checkpoint_filepath = "./checkpoint_" + args.dataset + "/epoch-{epoch:02d}-val_acc-{val_accuracy:.4f}.h5"
-model_save_path = "./mask_detector_models/mask_detector_" + args.dataset + ".h5"
-figure_save_path = "./figures/train_plot_" + args.dataset + ".jpg"
+dataset_path = os.path.join(config.BASE_DIR, "data", args.dataset)
+checkpoint_filepath = os.path.join(config.CHECKPOINTS_DIR, "checkpoint_" + args.dataset, "epoch-{epoch:02d}-val_acc-{val_accuracy:.4f}.h5")
+if args.dataset == "MFN":
+    model_save_path = config.MASK_DETECTOR_MFN
+else:
+    model_save_path = config.MASK_DETECTOR_RMFD
+figure_save_path = os.path.join(config.FIGURES_DIR, "train_plot_" + args.dataset + ".jpg")
 
 print("Num of classes: " + str(NUM_CLASS))
 print("Classes: " + str(class_names))

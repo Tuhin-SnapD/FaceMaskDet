@@ -3,6 +3,9 @@ from detect_mask_image import detect_mask
 import argparse
 import cv2
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import config
 
 
 def main():
@@ -30,19 +33,17 @@ def main():
         raise ValueError("Please provide a valid confidence value between 0 and 1 (inclusive).")
 
     # Initialize model save path
-    mask_detector_model_path = "D:/Face-Mask-Detector/mask_detector_models/mask_detector_" + args.model + ".h5"
+    if args.model == "MFN":
+        mask_detector_model_path = config.MASK_DETECTOR_MFN
+    else:
+        mask_detector_model_path = config.MASK_DETECTOR_RMFD
     confidence_threshold = args.confidence
     print("Mask detector save path: " + mask_detector_model_path)
     print("Face detector thresholding confidence: " + str(confidence_threshold))
 
     # Load the face detector model from disk
     print("[INFO] loading face detector model...")
-    #prototxt_path = os.path.join(os.getcwd(), 'face_detector', 'deploy.prototxt')
-    #weights_path = os.path.join(os.getcwd(), 'face_detector', 'res10_300x300_ssd_iter_140000.caffemodel')
-
-    prototxt_path = "D:/Face-Mask-Detector/face_detector_model/deploy.prototxt"
-    weights_path = "D:/Face-Mask-Detector/face_detector_model/res10_300x300_ssd_iter_140000.caffemodel"
-    face_detector = cv2.dnn.readNet(prototxt_path, weights_path)
+    face_detector = cv2.dnn.readNet(config.FACE_DETECTOR_PROTOTXT, config.FACE_DETECTOR_WEIGHTS)
 
     # Load the face mask detector model from disk
     print("[INFO] loading face mask detector model...")
